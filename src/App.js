@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Todo from './Todo';
+import Account from './Account';
+import Help from './Help';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
+import Header from './Header'
+
+
+
+import 'antd/dist/antd.css';
+//Using HashRouter instead of BrowserRouter to avoid 404 error while refreshing pages using the github page site link
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header/>
+        <Switch>
+          <Route  exact path="/" component={Todo} />
+          <Route path="/account" component={Account} />
+          <Route path="/help" component={Help} />
+
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
