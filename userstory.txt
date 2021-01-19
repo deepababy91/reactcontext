@@ -1,0 +1,6 @@
+Project 3-User stories
+1)As a user,I want to see a horizontal nav bar at the top of the site so that I can navigate to atleast todos and contact pages 
+2)As a user,I want to navigate to contact page so that I can submit a contact form with necessary fields 
+3)As a user,I want to navigate to the todos page so that I can see a list of the todo items
+4)As a user, I want to see the add and delete options so that I can add and remove todo items
+5)As a user, I want to see all, active and completed options so that I can show or filter all, active and completed todo items

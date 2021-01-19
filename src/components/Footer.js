@@ -103,7 +103,7 @@ function Footer() {
                           okText="Yes"
                           cancelText="No"
                       >
-      <button id="delete"><Tooltip title="Select a task or all to delete one or all tasks">Delete</Tooltip></button>
+      <button id="delete"><Tooltip title="Select a task or all to delete one or all tasks">Clear all</Tooltip></button>
      </Popconfirm>
       </div>
         }   
