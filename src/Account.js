@@ -34,8 +34,8 @@ export default function Account() {
   });
 
   return (
-    <div className="signup">
-      <h1 style={{color:'rgb(209, 193, 193)'}}>SIGN UP</h1>
+    <div>
+      <h1 style={{color:'rgb(209, 193, 193)' }} className="signup">SIGN UP</h1>
 
       <form onSubmit={formik.handleSubmit} className="signupform">
         <div>
@@ -90,7 +90,7 @@ export default function Account() {
         <div>
         <br/>
       
-        <Button color="primary" type="submit">Submit</Button>
+        <Button color="primary" type="submit" style={{fontFamily:'Oleo Script'}}>Submit</Button>
         </div>
       </form>
     </div>

@@ -29,41 +29,46 @@ function Footer() {
         setTodos(newTodosComplete())
         setCheckAll(false)
     }
+    
    const openNotification = () => {
+        
   notification.open({
-    message: 'Notification',
+     
+    message: <h4 style={{fontFamily: 'Oleo Script'}}>Hey,your task status</h4>,
     description:
       <p>You have {newTodosComplete().length} active tasks and {completed().length} completed tasks</p>,
   
      });
+  
     }
+    
 
  const { TabPane } = Tabs;
  
     const Demo = () => (
-  <Tabs defaultActiveKey="1">
-    <TabPane tab="All" key="1" >
-        <div>
+  <Tabs defaultActiveKey="1" type="card">
+    <TabPane tab="All" key="1"  >
+        <div style={{paddingBottom:'25px'}}>
       {todos.filter(todo => todo.complete===false|| todo.complete===true).map(filteredTodo => (
-        <li>
+        <li style={{listStyle:'circle',textTransform:'capitalize'}}>
           {filteredTodo.name}
         </li>
       ))}
     </div>
     </TabPane>
     <TabPane tab="Active" key="2" >
-     <div>
+     <div style={{paddingBottom:'25px'}}>
       {todos.filter(todo => todo.complete===false).map(filteredTodo => (
-        <li>
+        <li style={{color:'darkblue',listStyle:'circle',textTransform:'capitalize'}}>
           {filteredTodo.name}
         </li>
       ))}
     </div>
     </TabPane>
-    <TabPane tab="Completed" key="3">
-       <div>
+    <TabPane tab="Completed" key="3" >
+       <div style={{paddingBottom:'25px'}}>
       {todos.filter(todo => todo.complete===true).map(filteredTodo => (
-        <li>
+        <li style={{color:'green',listStyle:'circle',textTransform:'capitalize'}}>
           {filteredTodo.name}
         </li>
       ))}
@@ -77,19 +82,21 @@ function Footer() {
          
         {todos.length===0? 
       <h2><Empty /></h2>:
+      
     
      <div className="row">
-      <Demo />
-     
-     <label htmlFor="all">
-      <input type="checkbox" name="all" id="all"
-      onChange={handleCheckAll} checked={checkAll}/>All &nbsp;&nbsp;&nbsp;
-     
-      
-  <Button type="primary" onClick={openNotification}>
+    <Demo/>
+     <Button type="primary" onClick={openNotification} style={{width:'100%'}}>
   click to know about the task status
   </Button>
-      </label>
+    
+     
+     <label htmlFor="all" className="allinput">
+      <input type="checkbox" name="all" id="all"
+      onChange={handleCheckAll} checked={checkAll} />All &nbsp;&nbsp;&nbsp;
+     
+      
+       </label>
            <Popconfirm
                          title="Are you sure?"
                         onConfirm={deleteTodo}

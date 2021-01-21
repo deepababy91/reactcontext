@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Home() {
     return (
-        <div>
+        <div className="help">
             welcome to home page
         </div>
     )
