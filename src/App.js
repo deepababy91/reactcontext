@@ -6,6 +6,7 @@ import Help from './Help';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import Header from './Header'
+import Home from './Home'
 
 
 
@@ -19,8 +20,9 @@ function App() {
       <div className="App">
         <Header/>
         <Switch>
-          <Route  exact path="/" component={Todo} />
+          <Route exact path="/" component={Home} />
           <Route path="/account" component={Account} />
+          <Route path="/todo" component={Todo} />
           <Route path="/help" component={Help} />
 
         </Switch>

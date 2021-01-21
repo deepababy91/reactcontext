@@ -4,16 +4,20 @@ import {LinkContainer} from 'react-router-bootstrap'
 
 const Header= () => {
     return (
-        <Navbar className="color-nav"  expand="lg">
-            <LinkContainer to="/">
+        <Navbar className="color-nav"  expand="lg" >
+
+      <LinkContainer to="/">
   <Navbar.Brand>My Todoapp</Navbar.Brand>
-  </LinkContainer>
+    </LinkContainer>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
   {/*ml-auto will pull your navbar-nav to the right*/}
-    <Nav className="ml-auto">
+    <Nav className="ml-auto" style={{fontSize:'20px'}}>
         <LinkContainer to="/account">
       <Nav.Link>Account</Nav.Link>
+      </LinkContainer>
+      <LinkContainer to="/todo">
+      <Nav.Link>Todos</Nav.Link>
       </LinkContainer>
       <LinkContainer to="/help">
       <Nav.Link>Help</Nav.Link>
