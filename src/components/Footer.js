@@ -115,14 +115,16 @@ function Footer() {
      
       <button id="delete" style={{width:'96%'}}>Clear all</button>
      </Popconfirm>
-      </div>
-        }   
-         <label htmlFor="all" className="allinput">
+        <label htmlFor="all" className="allinput">
       <Tooltip placement="left" title="Check to complete all tasks and uncheck to make it active again"><input type="checkbox" name="all" id="all"
       onChange={handleCheckAll} checked={checkAll} /></Tooltip>Mark all complete 
      
       
        </label>
+      </div>
+      
+        }   
+    
         </div>
     )
 }
