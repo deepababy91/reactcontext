@@ -1,10 +1,9 @@
 import React from 'react'
 import {useState,useContext} from 'react'
 import {EditOutlined,SaveOutlined,DeleteOutlined} from '@ant-design/icons';
-import { Tooltip } from 'antd';
 import {DataContext} from './DataProvider'
 import {Popconfirm} from 'antd';
-import { Button} from 'react-bootstrap';
+
 
 
 export default function ListItem({todo,id,checkComplete,handleEditTodos}) {
@@ -41,7 +40,7 @@ export default function ListItem({todo,id,checkComplete,handleEditTodos}) {
       <li>
     
       <input type="text" id="editValue" value={editValue} name="editValue" onChange={e =>setEditValue(e.target.value)} />
-   <Tooltip title="Click here to save the edited task"><SaveOutlined onClick={()=>handleSave(id)} style={{color:'purple',fontSize:'20px'}}/></Tooltip>
+   <SaveOutlined onClick={()=>handleSave(id)} style={{color:'purple',fontSize:'20px'}} className={todo.complete?"disabled1":""} />
       </li>
         )
             
@@ -62,8 +61,8 @@ export default function ListItem({todo,id,checkComplete,handleEditTodos}) {
       
       </label>
      
-      <span><Tooltip title="Click here to edit the task">
-      <EditOutlined disabled={todo.complete} onClick={handleOnEdit} style={{color:'dodgerblue',fontSize:'20px'}}/></Tooltip>{' '}
+      <span>
+      <EditOutlined  className={todo.complete?"disabled1":""} onClick={handleOnEdit} style={{color:'dodgerblue',fontSize:'20px'}}/>{' '}
         <Popconfirm
                          title="Are you sure you want to delete this task?"
                         onConfirm={()=>deleteUser(id)}
@@ -78,7 +77,7 @@ export default function ListItem({todo,id,checkComplete,handleEditTodos}) {
                           cancelText="No"
                       >
       
-   <DeleteOutlined  style={{color:'red',fontSize:'18px',cursor:'pointer'}}/>  </Popconfirm></span>
+   <DeleteOutlined className={todo.complete?"disabled1":""} style={{color:'red',fontSize:'18px',cursor:'pointer'}}/>  </Popconfirm></span>
       </li>       
     )
       

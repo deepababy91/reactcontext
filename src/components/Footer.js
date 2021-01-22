@@ -1,6 +1,6 @@
 import React, {useContext,useState} from 'react'
 import {DataContext} from './DataProvider'
-import {Popconfirm, message,Tooltip,Empty,Button, notification,Tabs } from 'antd';
+import {Popconfirm,Tooltip,Empty,Button, notification,Tabs } from 'antd';
 
 
 function Footer() {
@@ -25,10 +25,10 @@ function Footer() {
     }
    
 
-    const deleteTodo=() =>{
-       
-        setTodos(newTodosComplete())
-        setCheckAll(false)
+     const deleteTodo = (id)=>{
+        const newTodos=[...todos]
+        newTodos.splice(id, todos.length);
+        setTodos(newTodos)
     }
     
    const openNotification = () => {
@@ -44,47 +44,14 @@ function Footer() {
     }
     
 
- {/*const { TabPane } = Tabs;
  
-    const Demo = () => (
-  <Tabs defaultActiveKey="1" type="card">
-    <TabPane tab="ALL" key="1"  >
-        <div style={{paddingBottom:'25px'}}>
-        {todos.filter(todo => todo.complete===false|| todo.complete===true).map(filteredTodo => (
-         {/*} {todos.map((allTodo,id) => (*/}
-        {/*<li style={{listStyle:'circle',textTransform:'capitalize'}}>
-          {filteredTodo.name}
-        </li>
-      ))}
-    </div>
-    </TabPane>
-    <TabPane tab="ACTIVE" key="2" >
-     <div style={{paddingBottom:'25px'}}>
-      {todos.filter(todo => todo.complete===false).map(filteredTodo => (
-        <li style={{color:'darkblue',listStyle:'circle',textTransform:'capitalize'}}>
-          {filteredTodo.name}
-        </li>
-      ))}
-    </div>
-    </TabPane>
-    <TabPane tab="COMPLETED" key="3" >
-       <div style={{paddingBottom:'25px'}}>
-      {todos.filter(todo => todo.complete===true).map(filteredTodo => (
-        <li style={{color:'green',listStyle:'circle',textTransform:'capitalize'}}>
-          {filteredTodo.name}
-        </li>
-      ))}
-    </div>
-    </TabPane>
-  </Tabs>
-      );*/}
       const { TabPane } = Tabs;
  
     const Demo = () => (
   <Tabs defaultActiveKey="1" type="card">
-    <TabPane tab="All" key="1"  >
+    <TabPane tab="All" key="1" >
         <div style={{paddingBottom:'25px'}}>
-      {todos.filter(todo => todo.complete===false|| todo.complete===true).map((filteredTodo,id) => (
+      {todos.map((filteredTodo,id) => (
         <li key={id} style={{listStyle:'circle',textTransform:'capitalize'}}>
           {filteredTodo.name}
         </li>
@@ -121,19 +88,19 @@ function Footer() {
     
      <div className="row">
     <Demo/>
-     <Button type="primary" onClick={openNotification} style={{width:'100%'}}>
+     <Button type="primary" onClick={openNotification} style={{width:'96%',marginBottom:'20px'}}>
   click to know about the task status
   </Button>
     
      
-     <label htmlFor="all" className="allinput">
+    {/* <label htmlFor="all" className="allinput">
       <Tooltip placement="left" title="Check to complete all tasks and uncheck to make it active again"><input type="checkbox" name="all" id="all"
-      onChange={handleCheckAll} checked={checkAll} /></Tooltip>Mark all complete &nbsp;&nbsp;&nbsp;
+        onChange={handleCheckAll} checked={checkAll} /></Tooltip>Mark all complete 
      
       
-       </label>
+        </label>*/}
            <Popconfirm
-                         title="Are you sure?"
+                         title="Are you sure you want to delete all tasks?"
                         onConfirm={deleteTodo}
                        
                     
@@ -146,10 +113,16 @@ function Footer() {
                           cancelText="No"
                       >
      
-      <button id="delete"><Tooltip title="Select a task or all to delete one or all tasks">Delete</Tooltip></button>
+      <button id="delete" style={{width:'96%'}}>Clear all</button>
      </Popconfirm>
       </div>
         }   
+         <label htmlFor="all" className="allinput">
+      <Tooltip placement="left" title="Check to complete all tasks and uncheck to make it active again"><input type="checkbox" name="all" id="all"
+      onChange={handleCheckAll} checked={checkAll} /></Tooltip>Mark all complete 
+     
+      
+       </label>
         </div>
     )
 }
