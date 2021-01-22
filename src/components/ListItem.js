@@ -23,9 +23,9 @@ export default function ListItem({todo,id,checkComplete,handleEditTodos}) {
             setEditValue(todo.name)
         }
     }
-    const deleteUser=index =>{
+    const deleteUser=(id)=>{
     const newTodos = [...todos];
-    newTodos.splice(index, 1);
+    newTodos.splice(id, 1);
     setTodos(newTodos);
   
   
@@ -66,7 +66,7 @@ export default function ListItem({todo,id,checkComplete,handleEditTodos}) {
       <EditOutlined disabled={todo.complete} onClick={handleOnEdit} style={{color:'dodgerblue',fontSize:'20px'}}/></Tooltip>{' '}
         <Popconfirm
                          title="Are you sure you want to delete this task?"
-                        onConfirm={deleteUser}
+                        onConfirm={()=>deleteUser(id)}
                        
                     
                     
@@ -78,7 +78,7 @@ export default function ListItem({todo,id,checkComplete,handleEditTodos}) {
                           cancelText="No"
                       >
       
-   <DeleteOutlined style={{color:'red',fontSize:'18px',cursor:'pointer'}}/>  </Popconfirm></span>
+   <DeleteOutlined  style={{color:'red',fontSize:'18px',cursor:'pointer'}}/>  </Popconfirm></span>
       </li>       
     )
       

@@ -6,13 +6,15 @@ import Help from './Help';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import Header from './Header'
-import Home from './Home'
-
-
-
 import 'antd/dist/antd.css';
+
 //Using HashRouter instead of BrowserRouter to avoid 404 error while refreshing pages using the github page site link
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+
+
+
+
+
 
 function App() {
   return (
@@ -20,7 +22,6 @@ function App() {
       <div className="App">
         <Header/>
         <Switch>
-          <Route exact path="/" component={Home} />
           <Route path="/account" component={Account} />
           <Route path="/todo" component={Todo} />
           <Route path="/help" component={Help} />

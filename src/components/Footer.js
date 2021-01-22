@@ -23,6 +23,7 @@ function Footer() {
     const completed=()=>{
        return todos.filter(todo=>todo.complete===true) 
     }
+   
 
     const deleteTodo=() =>{
        
@@ -43,7 +44,41 @@ function Footer() {
     }
     
 
- const { TabPane } = Tabs;
+ {/*const { TabPane } = Tabs;
+ 
+    const Demo = () => (
+  <Tabs defaultActiveKey="1" type="card">
+    <TabPane tab="ALL" key="1"  >
+        <div style={{paddingBottom:'25px'}}>
+        {todos.filter(todo => todo.complete===false|| todo.complete===true).map(filteredTodo => (
+         {/*} {todos.map((allTodo,id) => (*/}
+        {/*<li style={{listStyle:'circle',textTransform:'capitalize'}}>
+          {filteredTodo.name}
+        </li>
+      ))}
+    </div>
+    </TabPane>
+    <TabPane tab="ACTIVE" key="2" >
+     <div style={{paddingBottom:'25px'}}>
+      {todos.filter(todo => todo.complete===false).map(filteredTodo => (
+        <li style={{color:'darkblue',listStyle:'circle',textTransform:'capitalize'}}>
+          {filteredTodo.name}
+        </li>
+      ))}
+    </div>
+    </TabPane>
+    <TabPane tab="COMPLETED" key="3" >
+       <div style={{paddingBottom:'25px'}}>
+      {todos.filter(todo => todo.complete===true).map(filteredTodo => (
+        <li style={{color:'green',listStyle:'circle',textTransform:'capitalize'}}>
+          {filteredTodo.name}
+        </li>
+      ))}
+    </div>
+    </TabPane>
+  </Tabs>
+      );*/}
+      const { TabPane } = Tabs;
  
     const Demo = () => (
   <Tabs defaultActiveKey="1" type="card">
@@ -92,8 +127,8 @@ function Footer() {
     
      
      <label htmlFor="all" className="allinput">
-      <input type="checkbox" name="all" id="all"
-      onChange={handleCheckAll} checked={checkAll} />All &nbsp;&nbsp;&nbsp;
+      <Tooltip placement="left" title="Check to complete all tasks and uncheck to make it active again"><input type="checkbox" name="all" id="all"
+      onChange={handleCheckAll} checked={checkAll} /></Tooltip>Mark all complete &nbsp;&nbsp;&nbsp;
      
       
        </label>
@@ -110,6 +145,7 @@ function Footer() {
                           okText="Yes"
                           cancelText="No"
                       >
+     
       <button id="delete"><Tooltip title="Select a task or all to delete one or all tasks">Delete</Tooltip></button>
      </Popconfirm>
       </div>

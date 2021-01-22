@@ -173,7 +173,7 @@ label{
   font-family: 'Oleo Script', cursive;
   
 }
-.navbar-light .navbar-brand{
+.navbar-light .navbar-brand,h2{
      animation: navlinkcolor1 4s infinite;
      font-size: 30px;
      font-family: 'Oleo Script', cursive;
