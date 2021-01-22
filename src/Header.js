@@ -14,7 +14,10 @@ const Header= () => {
   <Navbar.Collapse id="basic-navbar-nav">
   {/*ml-auto will pull your navbar-nav to the right*/}
     <Nav className="ml-auto" style={{fontSize:'20px'}}>
-        <LinkContainer to="/account">
+        <LinkContainer to="/">
+      <Nav.Link></Nav.Link>
+      </LinkContainer>
+      <LinkContainer to="/account">
       <Nav.Link>Account</Nav.Link>
       </LinkContainer>
       <LinkContainer to="/todo">

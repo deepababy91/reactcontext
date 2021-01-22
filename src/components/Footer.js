@@ -84,8 +84,8 @@ function Footer() {
   <Tabs defaultActiveKey="1" type="card">
     <TabPane tab="All" key="1"  >
         <div style={{paddingBottom:'25px'}}>
-      {todos.filter(todo => todo.complete===false|| todo.complete===true).map(filteredTodo => (
-        <li style={{listStyle:'circle',textTransform:'capitalize'}}>
+      {todos.filter(todo => todo.complete===false|| todo.complete===true).map((filteredTodo,id) => (
+        <li key={id} style={{listStyle:'circle',textTransform:'capitalize'}}>
           {filteredTodo.name}
         </li>
       ))}
@@ -93,8 +93,8 @@ function Footer() {
     </TabPane>
     <TabPane tab="Active" key="2" >
      <div style={{paddingBottom:'25px'}}>
-      {todos.filter(todo => todo.complete===false).map(filteredTodo => (
-        <li style={{color:'darkblue',listStyle:'circle',textTransform:'capitalize'}}>
+      {todos.filter(todo => todo.complete===false).map((filteredTodo,id) => (
+        <li key={id}style={{color:'darkblue',listStyle:'circle',textTransform:'capitalize'}}>
           {filteredTodo.name}
         </li>
       ))}
@@ -102,8 +102,8 @@ function Footer() {
     </TabPane>
     <TabPane tab="Completed" key="3" >
        <div style={{paddingBottom:'25px'}}>
-      {todos.filter(todo => todo.complete===true).map(filteredTodo => (
-        <li style={{color:'green',listStyle:'circle',textTransform:'capitalize'}}>
+      {todos.filter(todo => todo.complete===true).map((filteredTodo,id) => (
+        <li key={id} style={{color:'green',listStyle:'circle',textTransform:'capitalize'}}>
           {filteredTodo.name}
         </li>
       ))}

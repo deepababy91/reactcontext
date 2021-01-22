@@ -22,6 +22,7 @@ function App() {
       <div className="App">
         <Header/>
         <Switch>
+          <Route exact path="/" component={Account}/>
           <Route path="/account" component={Account} />
           <Route path="/todo" component={Todo} />
           <Route path="/help" component={Help} />
